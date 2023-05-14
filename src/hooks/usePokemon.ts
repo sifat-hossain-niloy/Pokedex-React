@@ -3,12 +3,14 @@ import { httpClient } from "../api/httpClient";
 import { POKEMON_API_POKEMON_URL } from "../constants";
 import { DetailPokemon } from "../interfaces/pokemon.interface";
 import { getColorFromUrl } from "../utils/colors";
+//import axios from 'axios';
 
 interface UsePokemonProps {
   pokemonName: string | undefined;
 }
 
 const usePokemon = ({ pokemonName }: UsePokemonProps) => {
+  //const httpClient = axios.create()
   const [pokemon, setPokemon] = useState<DetailPokemon | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 

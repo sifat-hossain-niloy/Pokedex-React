@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { httpClient } from "../api/httpClient";
+//import axios from "axios";
 import {
   POKEMON_API_POKEMON_URL,
   POKEMON_IMAGES_BASE_URL,
@@ -14,6 +15,7 @@ import {
 } from "../interfaces/pokemon.interface";
 
 const usePokemons = () => {
+  //const httpClient = axios.create()
   const [pokemons, setPokemons] = useState<ListPokemon[] >([]);
   const [unfpokemons, setUnfPokemons] = useState<ListPokemon[]>([]);
   const [nextUrl, setNextUrl] = useState<string | null>(
