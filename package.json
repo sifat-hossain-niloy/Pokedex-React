@@ -49,8 +49,8 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^8.0.1",
     "jest": "^27.5.1",
     "react-test-renderer": "^18.2.0"
   }
-  
 }
