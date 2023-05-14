@@ -3,11 +3,15 @@ import React from 'react';
 import PokemonList from "../components/PokemonList";
 import usePokemons from "../hooks/usePokemons";
 import setPokemons from "../hooks/usePokemons";
+import { getAuth, signOut } from 'firebase/auth';   
+import "./style.css"
 
 import { IndexedType } from "../interfaces/pokemon.interface";
 
 const Home: React.FC = () => {
   const [text,setText] = React.useState('');
+
+  const auth = getAuth();
   const {
     pokemons,
     unfpokemons,
@@ -42,16 +46,19 @@ const Home: React.FC = () => {
 
   return ( 
     <Container>
-        <div>
-            <img  style={{ width: 50, height: 60 }}  src="https://yt3.googleusercontent.com/pK5_z_dptxyLuGllTGH4voHjz6WNTv0vgysrHQtmK6X45fl8g_h1ytu1H-ir1ExvY8uph0MbQA=s900-c-k-c0x00ffffff-no-rj"/>
-            <input
-             type="text" 
-             placeholder="Pikachu"
-             value={text} 
-             onChange={e=> setText(e.target.value)}/>
+        <div id="nav-bar">
+          <div id="logo-container">
+              <img  style={{ width: 110, height: 110 }}  src="https://assetsio.reedpopcdn.com/pokemon_dratini.jpg?width=1200&height=1200&fit=bounds&quality=70&format=jpg&auto=webp" alt="Logo"/>
+          </div>
 
-            <Button disabled={!text} onClick={handleOnClick}>Search</Button>
-        </div>
+          <div id="search-container">
+              <input id="search-input" type="text" placeholder="Pikachu" value={text} onChange={e => setText(e.target.value)} />
+              <Button id="search-button" disabled={!text} onClick={handleOnClick}>Search</Button>
+          </div>
+
+          <Button id="signout-button" onClick={() => signOut(auth)}>Sign out</Button>
+        </div>  
+
       <Grid container spacing={2} mt={1}>
         
         <Grid
